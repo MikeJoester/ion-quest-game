@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
 
+    public string startPoint;
+
     // private Vector2 movement;
     private bool isRight = true;
     private float xVal;
@@ -17,16 +19,15 @@ public class PlayerController : MonoBehaviour
     private bool attacking = false;
      
 
-    void Start()
-    {
+    void Start() {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
     }
 
-    // public float xValue {
-    //     get { return xVal; }
+    // public string startP {
+    //     get { return startP; }
     // }
 
     // public Vector2 playerMovement {
@@ -34,8 +35,7 @@ public class PlayerController : MonoBehaviour
     // }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         xVal = Input.GetAxisRaw("Horizontal") * Time.deltaTime * moveSpeed;
         yVal = Input.GetAxisRaw("Vertical") * Time.deltaTime * moveSpeed;
 
@@ -46,7 +46,9 @@ public class PlayerController : MonoBehaviour
         if (xVal < 0 && isRight) {
             Flip();
         }
-        animator.SetFloat("Speed", Mathf.Abs(xVal));
+        if (xVal == 0) {
+            animator.SetFloat("Speed", Mathf.Abs(yVal));
+        } else animator.SetFloat("Speed", Mathf.Abs(xVal));
 
         //Move Function
         var pos = new Vector2(transform.position.x + xVal, transform.position.y + yVal);
@@ -81,5 +83,9 @@ public class PlayerController : MonoBehaviour
         gameObject.transform.localScale = currentScale;
 
         isRight = !isRight;
+    }
+
+    public void Fade(bool fading) {
+        animator.SetBool("isEnter", fading);
     }
 }
