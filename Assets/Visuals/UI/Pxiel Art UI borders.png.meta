@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cf526c97e493b424ab819aa5ead3ceb0
+guid: c33f5c04dd96bc14683e33c0859e0e62
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,253 +117,190 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Run (34x44)_0
+      name: Pxiel Art UI borders_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 3
-        width: 30
-        height: 38
+        x: 17
+        y: 289
+        width: 94
+        height: 94
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc125b92c85f4e14183db7fc34b73007
-      internalID: -101021981
+      spriteID: af93b16173805b045a318951d5fa7c02
+      internalID: -1340123703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run (34x44)_1
+      name: Pxiel Art UI borders_3
       rect:
         serializedVersion: 2
-        x: 34
-        y: 6
-        width: 31
-        height: 36
+        x: 159
+        y: 286
+        width: 98
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a893ff92faac9e458d8844c922528a2
-      internalID: -614190193
+      spriteID: e392ad2b0c08c2b44a46f26efcd8867a
+      internalID: 794427725
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run (34x44)_2
+      name: Pxiel Art UI borders_4
       rect:
         serializedVersion: 2
-        x: 68
-        y: 6
-        width: 31
-        height: 37
+        x: 307
+        y: 291
+        width: 90
+        height: 90
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 889fd1bc2e435ab498c86401afc2811b
-      internalID: 454422517
+      spriteID: d156657286cc0cf49aec621a92670891
+      internalID: 103222477
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run (34x44)_3
+      name: Pxiel Art UI borders_9
       rect:
         serializedVersion: 2
-        x: 103
-        y: 3
-        width: 30
-        height: 40
+        x: 163
+        y: 163
+        width: 90
+        height: 90
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be7a71ce0213e314691a0f1b462ead3c
-      internalID: -1778440203
+      spriteID: 63e069d42a4a7394fa5fddd47402162b
+      internalID: 348003104
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run (34x44)_4
+      name: Pxiel Art UI borders_10
       rect:
         serializedVersion: 2
-        x: 139
-        y: 0
-        width: 29
-        height: 39
+        x: 306
+        y: 162
+        width: 92
+        height: 92
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3d96237a777d1844b5cec850cf09744
-      internalID: 304532401
+      spriteID: b3be132d736dfb242ab212b1ff8040a2
+      internalID: -948422787
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run (34x44)_5
+      name: Pxiel Art UI borders_11
       rect:
         serializedVersion: 2
-        x: 173
-        y: 0
-        width: 29
-        height: 38
+        x: 18
+        y: 162
+        width: 92
+        height: 92
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf94532760620294dbd8062a698ff964
-      internalID: 884852453
+      spriteID: 6ee91ddc930a15c45b73231264e75d34
+      internalID: 38644288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run (34x44)_6
+      name: Pxiel Art UI borders_13
       rect:
         serializedVersion: 2
-        x: 206
-        y: 3
-        width: 29
-        height: 38
+        x: 19
+        y: 35
+        width: 90
+        height: 90
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d4caaac2d9823f4e877f955fd4a764a
-      internalID: 1076626992
+      spriteID: 5c9ade506adfbdc4c835e6159335caf2
+      internalID: 1813615666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run (34x44)_7
+      name: Pxiel Art UI borders_14
       rect:
         serializedVersion: 2
-        x: 239
-        y: 5
-        width: 30
-        height: 37
+        x: 164
+        y: 36
+        width: 88
+        height: 88
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94f5b7b685cca594194e5efc5bcbaace
-      internalID: 610689037
+      spriteID: e372c53ede9ad234385403cf4027bea3
+      internalID: 1005007064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run (34x44)_8
+      name: Pxiel Art UI borders_16
       rect:
         serializedVersion: 2
-        x: 273
-        y: 5
-        width: 30
-        height: 38
+        x: 307
+        y: 35
+        width: 90
+        height: 90
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 927fa11da9bee8948bc2aecd41597745
-      internalID: 1168169003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run (34x44)_9
-      rect:
-        serializedVersion: 2
-        x: 308
-        y: 2
-        width: 29
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d314847beeab5cd44b7d9ad638f91299
-      internalID: -374922192
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run (34x44)_10
-      rect:
-        serializedVersion: 2
-        x: 343
-        y: 0
-        width: 29
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c47d5e7132d81d24c8f3f674d4e34c24
-      internalID: -1311734722
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run (34x44)_11
-      rect:
-        serializedVersion: 2
-        x: 377
-        y: 0
-        width: 29
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 75220de3660defa4ea2d4ac9eea95e05
-      internalID: -665176011
+      spriteID: e4bd151865a89b44eb332b3224744178
+      internalID: -794228668
       vertices: []
       indices: 
       edges: []
@@ -379,18 +316,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Run (34x44)_5: 884852453
-      Run (34x44)_9: -374922192
-      Run (34x44)_7: 610689037
-      Run (34x44)_3: -1778440203
-      Run (34x44)_6: 1076626992
-      Run (34x44)_1: -614190193
-      Run (34x44)_4: 304532401
-      Run (34x44)_2: 454422517
-      Run (34x44)_10: -1311734722
-      Run (34x44)_11: -665176011
-      Run (34x44)_0: -101021981
-      Run (34x44)_8: 1168169003
+      Pxiel Art UI borders_4: 103222477
+      Pxiel Art UI borders_11: 38644288
+      Pxiel Art UI borders_0: -1340123703
+      Pxiel Art UI borders_12: -1237602494
+      Pxiel Art UI borders_6: 1112449994
+      Pxiel Art UI borders_8: -1771262039
+      Pxiel Art UI borders_14: 1005007064
+      Pxiel Art UI borders_15: 380318160
+      Pxiel Art UI borders_16: -794228668
+      Pxiel Art UI borders_7: 1092727576
+      Pxiel Art UI borders_17: -1830813943
+      Pxiel Art UI borders_9: 348003104
+      Pxiel Art UI borders_19: 1171513849
+      Pxiel Art UI borders_10: -948422787
+      Pxiel Art UI borders_1: -331551330
+      Pxiel Art UI borders_2: 1902596048
+      Pxiel Art UI borders_18: -1452718100
+      Pxiel Art UI borders_3: 794427725
+      Pxiel Art UI borders_13: 1813615666
+      Pxiel Art UI borders_5: -762555882
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
