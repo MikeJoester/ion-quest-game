@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject dust;   
     private Rigidbody2D rb;
     private Animator animator;
+    private SwordController swordController;
 
     public string startPoint;
 
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        swordController = FindObjectOfType<SwordController>();
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
     }
@@ -36,8 +38,13 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        xVal = Input.GetAxisRaw("Horizontal") * Time.deltaTime * moveSpeed;
-        yVal = Input.GetAxisRaw("Vertical") * Time.deltaTime * moveSpeed;
+        if (!attacking) {
+            xVal = Input.GetAxisRaw("Horizontal") * Time.deltaTime * moveSpeed;
+            yVal = Input.GetAxisRaw("Vertical") * Time.deltaTime * moveSpeed;
+        } else {
+            xVal = 0;
+            yVal = 0;
+        }
 
         //Flip function
         if (xVal > 0 && !isRight) {
@@ -70,11 +77,16 @@ public class PlayerController : MonoBehaviour
     }
 
     IEnumerator AtkDelay() {
+        //Starts Attack
         animator.SetBool("isAttacking", true);
-        yield return new WaitForSeconds(0.5f);
-        attacking = false;
+        yield return new WaitForSeconds(0.3f);
+        swordController.Attack();
+        yield return new WaitForSeconds(0.3f);
+
+        //Ends attack
         animator.SetBool("isAttacking", false);
-        yield return new WaitForSeconds(0.5f);
+        attacking = false;
+        swordController.stopAttack();
     }
 
     private void Flip() {

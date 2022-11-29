@@ -37,4 +37,14 @@ public class EnemyController : MonoBehaviour
         currentScale.x *= -1;
         this.gameObject.transform.localScale = currentScale;
     }
+
+    private void OnTriggerEnter2D(Collider2D collider) {
+        if (collider.gameObject.tag == "Weapon") {
+            Debug.Log("Hit");
+        }
+
+        if (collider.gameObject.tag == "Player") {
+            Debug.Log("minus HP");
+        }
+    }
 }
