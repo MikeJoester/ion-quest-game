@@ -30,15 +30,6 @@ public class PlayerController : MonoBehaviour
         Application.targetFrameRate = 60;
     }
 
-    // public string startP {
-    //     get { return startP; }
-    // }
-
-    // public Vector2 playerMovement {
-    //     get { return movement; }
-    // }
-
-    // Update is called once per frame
     void Update() {
         if (!attacking) {
             xVal = Input.GetAxisRaw("Horizontal") * Time.deltaTime * moveSpeed;
@@ -52,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
         if ((xVal != 0 || yVal != 0) && isDashing) {
             moveSpeed = 6.5f;
-            StaminaController.instance.UseStamina(0.5f);
+            StaminaController.instance.UseStamina(1f);
         }
 
         if (!isDashing) {
@@ -66,6 +57,7 @@ public class PlayerController : MonoBehaviour
         if (xVal < 0 && isRight) {
             Flip();
         }
+        
         if (xVal == 0) {
             animator.SetFloat("Speed", Mathf.Abs(yVal));
         } else animator.SetFloat("Speed", Mathf.Abs(xVal));
