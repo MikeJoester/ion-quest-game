@@ -14,7 +14,7 @@ public class ChestTrigger : MonoBehaviour
     }
 
     void Update() {
-        if ((collided) && (Input.GetKeyDown(KeyCode.E))) {
+        if ((collided) && (Input.GetKeyDown("e"))) {
             anim.SetBool("isOpen", true);
         }  
     }

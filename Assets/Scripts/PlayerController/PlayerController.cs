@@ -5,19 +5,21 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 4f;
+    [SerializeField] float moveSpeed = 3f;
     [SerializeField] GameObject dust;   
     private Rigidbody2D rb;
     private Animator animator;
     private SwordController swordController;
 
     public string startPoint;
+    public static bool isDashing = false;
 
     // private Vector2 movement;
     private bool isRight = true;
     private float xVal;
     private float yVal;
     private bool attacking = false;
+    
      
 
     void Start() {
@@ -46,6 +48,17 @@ public class PlayerController : MonoBehaviour
             yVal = 0;
         }
 
+        if (Input.GetKey("z")) {isDashing = true;} else {isDashing = false;}
+
+        if ((xVal != 0 || yVal != 0) && isDashing) {
+            moveSpeed = 6.5f;
+            StaminaController.instance.UseStamina(0.5f);
+        }
+
+        if (!isDashing) {
+            moveSpeed = 3.5f;
+        }
+
         //Flip function
         if (xVal > 0 && !isRight) {
             Flip();
@@ -70,7 +83,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Attack trigger
-        if ((Input.GetKeyDown("z")) && (attacking == false)) {
+        if ((Input.GetKeyDown("x")) && (attacking == false)) {
             attacking = true;
             StartCoroutine(AtkDelay());
         }
