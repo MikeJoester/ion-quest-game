@@ -14,10 +14,12 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] GameObject player;
     [SerializeField] float speed;
+    [SerializeField] int life;
 
     void Start() {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        player = GameObject.Find("Player");
     }
 
     void Update() {
@@ -61,11 +63,22 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.tag == "Weapon") {
-            Debug.Log("Hit");
+            StartCoroutine(HitAnim());
+            life -= 1;
+            if (life == 0) {
+                Destroy(this.gameObject);
+            }
         }
 
         if (collider.gameObject.tag == "Player") {
             Debug.Log("minus HP");
+            // HealthManager.life -= 1;
         }
+    }
+
+    IEnumerator HitAnim() {
+        anim.SetBool("isHit", true);
+        yield return new WaitForSeconds(0.05f);
+        anim.SetBool("isHit", false);
     }
 }
