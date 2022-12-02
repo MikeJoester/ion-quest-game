@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public static bool isDashing = false;
 
     // private Vector2 movement;
+    private static bool playerExists;
     private bool isRight = true;
     private float xVal;
     private float yVal;
@@ -23,6 +24,14 @@ public class PlayerController : MonoBehaviour
      
 
     void Start() {
+        if (!playerExists) {
+            playerExists = true;
+            DontDestroyOnLoad(transform.gameObject);
+        }
+        else {
+            Destroy(gameObject);
+        }
+        
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         swordController = FindObjectOfType<SwordController>();
