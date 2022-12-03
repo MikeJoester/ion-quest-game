@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     private float yVal;
     private bool attacking = false;
     
-     
 
     void Start() {
         if (!playerExists) {
@@ -31,7 +30,7 @@ public class PlayerController : MonoBehaviour
         else {
             Destroy(gameObject);
         }
-        
+
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         swordController = FindObjectOfType<SwordController>();

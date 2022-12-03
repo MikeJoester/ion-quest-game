@@ -122,7 +122,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 10
+  m_LinearDrag: 5
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -142,7 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb22133ec978bd4cb8814a73f411789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 9042889333972163458, guid: a47f1aca8db2bc64f852248981ebc34d, type: 3}
   speed: 1
   life: 2
 --- !u!70 &6130773786275506837
@@ -158,8 +157,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0000010730143, y: 0.0010960997}
-  m_Size: {x: 0.873911, y: 0.6261363}
+  m_Offset: {x: 0.0000010733107, y: 0.0035818224}
+  m_Size: {x: 0.87391126, y: 0.67585355}
   m_Direction: 1
 --- !u!1 &6361071980584872323
 GameObject:

@@ -11,14 +11,16 @@ public class EnemyController : MonoBehaviour
     private float xVal = -1;
     private float distance;
     private bool isRight = false;
+    private GameObject player;
+    private HealthManager playerHealth;
 
-    [SerializeField] GameObject player;
     [SerializeField] float speed;
     [SerializeField] int life;
 
     void Start() {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        playerHealth = FindObjectOfType<HealthManager>();
         player = GameObject.Find("Player");
     }
 
@@ -71,8 +73,7 @@ public class EnemyController : MonoBehaviour
         }
 
         if (collider.gameObject.tag == "Player") {
-            Debug.Log("minus HP");
-            // HealthManager.life -= 1;
+            playerHealth.TakeDmg();
         }
     }
 
