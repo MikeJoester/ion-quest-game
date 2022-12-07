@@ -29,11 +29,9 @@ public class LoadArea : MonoBehaviour
         if (doorAnim != null) {
             doorAnim.SetBool("isEnter", true);
         }
-
-        // Debug.Log($"Loaded {sceneName}!");
+        
         yield return new WaitForSeconds(1);
         player.Fade(false);
-        Debug.Log("entered");
         SceneManager.LoadScene(sceneName);   
     }
 }

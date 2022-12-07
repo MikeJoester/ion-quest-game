@@ -6,17 +6,24 @@ public class ChestTrigger : MonoBehaviour
 {
     private Animator anim;
     private bool collided;
+    [SerializeField] GameObject spreadEffect;
 
     void Start()
     {
-        anim = GetComponent<Animator>(); 
-        collided = false;  
+        anim = GetComponent<Animator>();
+        collided = false;
     }
 
     void Update() {
         if ((collided) && (Input.GetKeyDown("e"))) {
             anim.SetBool("isOpen", true);
+            StartCoroutine(SpawnSpread());
         }  
+    }
+
+    IEnumerator SpawnSpread(){
+        yield return new WaitForSeconds(0.5f);
+        spreadEffect.SetActive(true);
     }
 
     void OnTriggerEnter2D(Collider2D other) {

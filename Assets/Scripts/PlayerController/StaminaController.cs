@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class StaminaController : MonoBehaviour
 {
-    private Slider staminaBar;
+    public Slider staminaBar;
     private float maxStamina = 150f;
     private float currentStamina;
 
@@ -15,11 +15,18 @@ public class StaminaController : MonoBehaviour
     public static StaminaController instance;
 
     void Awake() {
-        instance = this;
+        if (instance == null){
+             instance = this;
+        } else {
+            Destroy(gameObject);
+            return;
+        }
+        
+        DontDestroyOnLoad(gameObject);
     }
     
     void Start() {
-        staminaBar = GetComponent<Slider>();
+        // staminaBar = GetComponent<Slider>();
         currentStamina = maxStamina;
         staminaBar.maxValue = maxStamina;
         staminaBar.value = maxStamina;

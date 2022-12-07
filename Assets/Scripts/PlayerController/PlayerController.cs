@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 3f;
-    [SerializeField] GameObject dust;   
+    [SerializeField] GameObject dust;
+    [SerializeField] GameObject gameUI;
     private Rigidbody2D rb;
     private Animator animator;
     private SwordController swordController;
@@ -16,13 +17,13 @@ public class PlayerController : MonoBehaviour
 
     // private Vector2 movement;
     private static bool playerExists;
+    private static bool UIExists;
     private bool isRight = true;
     private float xVal;
     private float yVal;
     private bool attacking = false;
     
-
-    void Start() {
+    void Awake() {
         if (!playerExists) {
             playerExists = true;
             DontDestroyOnLoad(transform.gameObject);
@@ -30,6 +31,16 @@ public class PlayerController : MonoBehaviour
         else {
             Destroy(gameObject);
         }
+        if (!UIExists) {
+            UIExists = true;
+            DontDestroyOnLoad(gameUI);
+        }
+        else {
+            Destroy(gameUI);
+        }
+    }
+
+    void Start() {
 
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
