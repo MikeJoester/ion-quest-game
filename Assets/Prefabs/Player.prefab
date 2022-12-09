@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 9042889333972163460}
   - component: {fileID: 9042889333972163467}
   - component: {fileID: 7173096826063303104}
+  - component: {fileID: 5402596384900108413}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -215,6 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   dust: {fileID: 3953620699324093664, guid: 7197c4c4992cf3544bbfc12d52397f48, type: 3}
+  gameUI: {fileID: 0}
   startPoint: 
 --- !u!61 &7173096826063303104
 BoxCollider2D:
@@ -242,3 +244,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6826136, y: 0.82030565}
   m_EdgeRadius: 0
+--- !u!114 &5402596384900108413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9042889333972163458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f1d4c8f2a51c4d44b0725fda9390035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staminaBar: {fileID: 0}
