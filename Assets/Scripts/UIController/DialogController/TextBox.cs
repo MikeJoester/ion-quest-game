@@ -3,29 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class TextBox : MonoBehaviour
 {
     [Header("Dialogue")]
-    public Text textComponent;
-    public string[] lines;
-    public static float textSpeed = 0.09f;
-    public static int CharPhase = 0;
-    public GameObject DialogueScreen;
+    [SerializeField] TextMeshProUGUI textComponent;
+    [SerializeField] string[] lines;
+    float textDelay = 0.07f;
+    [SerializeField] static int CharPhase = 0;
+    [SerializeField] GameObject DialogueScreen;
 
-    [Header("Character")]
-    public Image Character;
-    public Image charBorder;
-    public Sprite[] spriteArray;
-    public int AppearIndex;
+    // [Header("Character")]
+    // [SerializeField] Image Character;
+    // [SerializeField] Image charBorder;
+    // [SerializeField] Sprite[] spriteArray;
+    // [SerializeField] int AppearIndex;
 
     private int index;
 
     void Start()
     {
         textComponent.text = string.Empty;
-        charBorder.enabled = true;
-        Character.enabled = true;
+        // charBorder.enabled = true;
+        // Character.enabled = true;
         StartDialogue();
     }
 
@@ -37,12 +38,12 @@ public class TextBox : MonoBehaviour
         //     Character.enabled = true;
         // }
         
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) {
             
             if (textComponent.text == lines[index]) {
                 NextLine();
 
-                Character.sprite = spriteArray[CharPhase - AppearIndex];
+                // Character.sprite = spriteArray[CharPhase - AppearIndex];
             }
             else {
                 StopAllCoroutines();
@@ -60,7 +61,7 @@ public class TextBox : MonoBehaviour
     IEnumerator TypeLine() {
         foreach (char c in lines[index].ToCharArray()) {
             textComponent.text += c;
-            yield return new WaitForSeconds(textSpeed);
+            yield return new WaitForSeconds(textDelay);
         }
     }
 
