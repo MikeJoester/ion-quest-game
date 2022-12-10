@@ -11,7 +11,7 @@ public class TextBox : MonoBehaviour
     [SerializeField] TextMeshProUGUI textComponent;
     [SerializeField] string[] lines;
     float textDelay = 0.07f;
-    [SerializeField] static int CharPhase = 0;
+    static int CharPhase = 0;
     [SerializeField] GameObject DialogueScreen;
 
     // [Header("Character")]
@@ -48,12 +48,12 @@ public class TextBox : MonoBehaviour
             else {
                 StopAllCoroutines();
                 textComponent.text = lines[index];
-                CharPhase += 1;
+                // CharPhase += 1;
             }
         }
     }
 
-    public void StartDialogue() {
+    void StartDialogue() {
         index = 0;
         StartCoroutine(TypeLine());
     }

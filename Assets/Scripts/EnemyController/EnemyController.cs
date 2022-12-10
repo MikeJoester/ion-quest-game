@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] float speed;
     [SerializeField] int life;
+    [SerializeField] float distanceLimit;
 
     void Start() {
         body = GetComponent<Rigidbody2D>();
@@ -26,7 +27,7 @@ public class EnemyController : MonoBehaviour
 
     void Update() {
         distance = Vector2.Distance(transform.position, player.transform.position);
-        if (distance < 4) {
+        if (distance < distanceLimit) {
             float deltaX = player.transform.position.x - this.transform.position.x;
             anim.SetFloat("runSpeed", Mathf.Abs(deltaX));
             if (deltaX < 0 && isRight)
