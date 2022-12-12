@@ -5,18 +5,21 @@ using UnityEngine;
 public class ChestTrigger : MonoBehaviour
 {
     private Animator anim;
-    private bool collided;
-    [SerializeField] GameObject spreadEffect;
+    private Inventory inven;
+    private bool collided = false;
 
-    void Start()
-    {
+    [SerializeField] GameObject spreadEffect;
+    [SerializeField] GameObject itemButton;
+
+    void Start() {
         anim = GetComponent<Animator>();
-        collided = false;
+        inven = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
     }
 
     void Update() {
         if ((collided) && (Input.GetKeyDown("e"))) {
             anim.SetBool("isOpen", true);
+            SetSlot();
             StartCoroutine(SpawnSpread());
         }  
     }
@@ -35,6 +38,19 @@ public class ChestTrigger : MonoBehaviour
     void OnTriggerExit2D(Collider2D other) {
         if((other.gameObject.tag == "Player")) {
             collided = false;
+        }
+    }
+
+    void SetSlot() {
+        for (int i = 0; i < inven.maxSlots; i++) {
+            if (inven.isAvailable[i] == true) {
+                inven.isAvailable[i] = false;
+                itemButton.SetActive(true);
+
+                GameObject newButton = Instantiate(itemButton, inven.itemSlots[i].transform, false);
+                newButton.transform.localPosition = Vector3.zero;
+                break;
+            }
         }
     }
 }
