@@ -7,6 +7,7 @@ public class HealthManager : MonoBehaviour
 {
     public static HealthManager instance;
     public int maxHealth;
+    int healingAmount = 1;
     int health;
 
     public event Action DamageTaken;
@@ -43,7 +44,7 @@ public class HealthManager : MonoBehaviour
             return;
         }
 
-        health += 1;
+        health += healingAmount;
         if (DamageTaken != null) {
             DamageTaken();
         }

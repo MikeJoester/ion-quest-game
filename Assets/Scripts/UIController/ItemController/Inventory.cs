@@ -6,19 +6,11 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    public bool[] isAvailable;
-    public GameObject[] itemSlots;
-    [SerializeField] GameObject emptySlot;
+    public delegate void OnItemChanged();
+    public OnItemChanged onItemChangedCallback;
+    public int storageSpace = 15;
+
     public static Inventory invenInstance;
-
-    public int maxSlots = 9;
-    int itemSlot;
-
-    public event Action addedSlot;
-
-    public int Slot {
-        get { return itemSlot; }
-    }
 
     void Awake() {
         if (invenInstance == null) {
@@ -26,24 +18,31 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    void Start() {
-        itemSlot = maxSlots;
-        isAvailable = new bool[maxSlots];
-        itemSlots = new GameObject[maxSlots];
-        for (int i = 0; i < maxSlots; i++) {
-            // isAvailable.Add(true);
-            // itemSlots.Add(emptySlot.GetComponent<Image>());
-            isAvailable[i] = true;
-            itemSlots[i] = emptySlot;
+    public List<Item> itemList = new List<Item>();
+
+    public bool Add(Item i) {
+        if (!i.isDefaultItem) {
+            if (itemList.Count >= storageSpace) {
+                Debug.Log("Inventory full!");
+                return false;
+            }
+
+            itemList.Add(i);
+
+            if (onItemChangedCallback != null) { 
+                onItemChangedCallback.Invoke();
+            }
         }
+
+        return true;
     }
 
-    public void UpgradeHealth() {
-        maxSlots++;
-        itemSlot = maxSlots;
-        
-        if (addedSlot!= null) {
-            addedSlot();
-        }
+    public void Remove(Item i) {
+        itemList.Remove(i);
+
+        if (onItemChangedCallback != null) { 
+                onItemChangedCallback.Invoke();
+            }
     }
+
 }

@@ -6,10 +6,11 @@ public class ChestTrigger : MonoBehaviour
 {
     private Animator anim;
     private Inventory inven;
+    public Item item;
     private bool collided = false;
 
     [SerializeField] GameObject spreadEffect;
-    [SerializeField] GameObject itemButton;
+    // [SerializeField] GameObject itemButton;
 
     void Start() {
         anim = GetComponent<Animator>();
@@ -19,7 +20,7 @@ public class ChestTrigger : MonoBehaviour
     void Update() {
         if ((collided) && (Input.GetKeyDown("e"))) {
             anim.SetBool("isOpen", true);
-            SetSlot();
+            // SetSlot();
             StartCoroutine(SpawnSpread());
         }  
     }
@@ -27,6 +28,10 @@ public class ChestTrigger : MonoBehaviour
     IEnumerator SpawnSpread(){
         yield return new WaitForSeconds(0.5f);
         spreadEffect.SetActive(true);
+        bool pickedUp = Inventory.invenInstance.Add(item);
+        if (pickedUp) {
+            Debug.Log($"Obtained {item.name}");
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -41,16 +46,16 @@ public class ChestTrigger : MonoBehaviour
         }
     }
 
-    void SetSlot() {
-        for (int i = 0; i < inven.maxSlots; i++) {
-            if (inven.isAvailable[i] == true) {
-                inven.isAvailable[i] = false;
-                itemButton.SetActive(true);
+    // void SetSlot() {
+    //     for (int i = 0; i < inven.maxSlots; i++) {
+    //         if (inven.isAvailable[i] == true) {
+    //             inven.isAvailable[i] = false;
+    //             itemButton.SetActive(true);
 
-                GameObject newButton = Instantiate(itemButton, inven.itemSlots[i].transform, false);
-                newButton.transform.localPosition = Vector3.zero;
-                break;
-            }
-        }
-    }
+    //             GameObject newButton = Instantiate(itemButton, inven.itemSlots[i].transform, false);
+    //             newButton.transform.localPosition = Vector3.zero;
+    //             break;
+    //         }
+    //     }
+    // }
 }
