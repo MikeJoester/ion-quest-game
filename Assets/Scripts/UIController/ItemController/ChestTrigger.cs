@@ -8,6 +8,7 @@ public class ChestTrigger : MonoBehaviour
     private Inventory inven;
     public Item item;
     private bool collided = false;
+    private bool isOpened = false;
 
     [SerializeField] GameObject spreadEffect;
     // [SerializeField] GameObject itemButton;
@@ -18,10 +19,13 @@ public class ChestTrigger : MonoBehaviour
     }
 
     void Update() {
-        if ((collided) && (Input.GetKeyDown("e"))) {
+        if (!isOpened) {
+            if ((collided) && (Input.GetKeyDown("e"))) {
             anim.SetBool("isOpen", true);
             // SetSlot();
             StartCoroutine(SpawnSpread());
+            isOpened = true;
+            }
         }  
     }
 
