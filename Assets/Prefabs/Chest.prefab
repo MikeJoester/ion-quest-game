@@ -4824,7 +4824,7 @@ GameObject:
   - component: {fileID: 515905915360305506}
   - component: {fileID: 515905915360305504}
   - component: {fileID: 515905915360305439}
-  - component: {fileID: 8573852327215098914}
+  - component: {fileID: 8895233752228763640}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -4947,7 +4947,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.419591, y: 1.4104657}
   m_EdgeRadius: 0
---- !u!114 &8573852327215098914
+--- !u!114 &8895233752228763640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4959,6 +4959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f7d85c7e3196f4fbd877291cc44d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 5aa4b2105c90bcb46b97701e75a88dba, type: 2}
   spreadEffect: {fileID: 1460353710}
 --- !u!1 &6939222928395887363
 GameObject:

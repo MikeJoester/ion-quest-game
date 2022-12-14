@@ -11,7 +11,6 @@ public class ChestTrigger : MonoBehaviour
     private bool isOpened = false;
 
     [SerializeField] GameObject spreadEffect;
-    // [SerializeField] GameObject itemButton;
 
     void Start() {
         anim = GetComponent<Animator>();
@@ -20,9 +19,8 @@ public class ChestTrigger : MonoBehaviour
 
     void Update() {
         if (!isOpened) {
-            if ((collided) && (Input.GetKeyDown("e"))) {
+            if ((collided) && (Input.GetKeyDown("f"))) {
             anim.SetBool("isOpen", true);
-            // SetSlot();
             StartCoroutine(SpawnSpread());
             isOpened = true;
             }
@@ -49,17 +47,4 @@ public class ChestTrigger : MonoBehaviour
             collided = false;
         }
     }
-
-    // void SetSlot() {
-    //     for (int i = 0; i < inven.maxSlots; i++) {
-    //         if (inven.isAvailable[i] == true) {
-    //             inven.isAvailable[i] = false;
-    //             itemButton.SetActive(true);
-
-    //             GameObject newButton = Instantiate(itemButton, inven.itemSlots[i].transform, false);
-    //             newButton.transform.localPosition = Vector3.zero;
-    //             break;
-    //         }
-    //     }
-    // }
 }

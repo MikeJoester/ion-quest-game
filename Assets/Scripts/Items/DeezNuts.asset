@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb6302865246df439d9301ad811d1d5, type: 3}
   m_Name: DeezNuts
   m_EditorClassIdentifier: 
-  name: DeezNuts
-  icon: {fileID: -1624768583, guid: e0bd325b039cc7c4da59c9eab6699c69, type: 3}
+  name: HouseKey
+  icon: {fileID: -1739689022, guid: e0bd325b039cc7c4da59c9eab6699c69, type: 3}
   isDefaultItem: 0

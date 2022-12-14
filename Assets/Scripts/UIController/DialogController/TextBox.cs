@@ -38,7 +38,7 @@ public class TextBox : MonoBehaviour
         //     Character.enabled = true;
         // }
         
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) {
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.F)) {
             
             if (textComponent.text == lines[index]) {
                 NextLine();

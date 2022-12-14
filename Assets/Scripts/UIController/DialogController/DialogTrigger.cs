@@ -8,7 +8,7 @@ public class DialogTrigger : MonoBehaviour
     public GameObject DialogueScreen;
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.E) && triggerEntered == true) {
+        if (Input.GetKeyDown(KeyCode.F) && triggerEntered == true) {
             DialogueScreen.SetActive(true);
         }
     }
