@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class EnemyController : MonoBehaviour
 {
     private Rigidbody2D body;
+    private SpriteRenderer enemySprite;
     private Animator anim;
     private float timer = 0f;
     private float xVal = -1;
@@ -22,25 +23,27 @@ public class EnemyController : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         playerHealth = FindObjectOfType<HealthManager>();
+        enemySprite = GetComponent<SpriteRenderer>();
         player = GameObject.Find("Player");
     }
 
     void Update() {
+
         distance = Vector2.Distance(transform.position, player.transform.position);
         if (distance < distanceLimit) {
             float deltaX = player.transform.position.x - this.transform.position.x;
             anim.SetFloat("runSpeed", Mathf.Abs(deltaX));
             if (deltaX < 0 && isRight)
-                Flip ();
+                {Flip ();}
             if (deltaX > 0 && !isRight)
-                Flip ();
+                {Flip ();}
 
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
         } else {
             if (xVal < 0 && isRight)
-                Flip ();
+                {Flip(); Debug.Log("Flipped Left");}
             if (xVal > 0 && !isRight)
-                Flip ();
+                {Flip (); Debug.Log("Flipped Right");}
             IdleMoving();
         }
     }
@@ -59,17 +62,16 @@ public class EnemyController : MonoBehaviour
 
     private void Flip() {
         isRight = !isRight;
-        Vector2 currentScale = this.gameObject.transform.localScale;
-        currentScale.x *= -1;
-        this.gameObject.transform.localScale = currentScale;
+        enemySprite.flipX = isRight;
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.tag == "Weapon") {
-            StartCoroutine(HitAnim());
             life -= 1;
-            if (life == 0) {
-                Destroy(this.gameObject);
+            if (life <= 0) {
+                StartCoroutine(DeadAnim());
+            } else {
+                StartCoroutine(HitAnim());
             }
         }
 
@@ -78,9 +80,16 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    IEnumerator DeadAnim() {
+        speed = 0f;
+        anim.SetTrigger("Dead");
+        yield return new WaitForSeconds(1f);
+        Destroy(this.gameObject);
+    }
+
     IEnumerator HitAnim() {
         anim.SetBool("isHit", true);
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.01f);
         anim.SetBool("isHit", false);
     }
 }

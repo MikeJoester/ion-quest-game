@@ -7,6 +7,7 @@ public class HealthManager : MonoBehaviour
 {
     public static HealthManager instance;
     public int maxHealth;
+    private PlayerController player;
     int healingAmount = 1;
     int health;
 
@@ -25,14 +26,16 @@ public class HealthManager : MonoBehaviour
 
     void Start() {
         health = maxHealth;
+        player = FindObjectOfType<PlayerController>();
     }
 
     public void TakeDmg() {
-        if (health <= 0) {
-            Debug.Log("YOU DIED!");
-            return;
-        }
         health -= 1;
+        if (health <= 0) {
+            player.attacking = true;
+            StartCoroutine(player.PlayerDead());
+            //return;
+        }
 
         if (DamageTaken != null) {
             DamageTaken();

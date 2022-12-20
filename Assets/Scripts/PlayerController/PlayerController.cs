@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 3f;
+    private float moveSpeed = 3f;
     [SerializeField] GameObject dust;
     [SerializeField] GameObject gameUI;
+    [SerializeField] GameObject deadAlert;
     private Rigidbody2D rb;
     private Animator animator;
     private SwordController swordController;
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
     private bool isRight = true;
     private float xVal;
     private float yVal;
-    private bool attacking = false;
+    public bool attacking = false;
     
     void Awake() {
         if (!playerExists) {
@@ -111,6 +112,12 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isAttacking", false);
         attacking = false;
         swordController.stopAttack();
+    }
+
+    public IEnumerator PlayerDead() {
+        animator.SetTrigger("Dead");
+        yield return new WaitForSeconds(1.5f);
+        deadAlert.SetActive(true);
     }
 
     private void Flip() {
