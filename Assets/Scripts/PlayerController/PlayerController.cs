@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,12 +10,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject dust;
     [SerializeField] GameObject gameUI;
     [SerializeField] GameObject deadAlert;
+    [SerializeField] TextMeshProUGUI moneyText;
     private Rigidbody2D rb;
     private Animator animator;
     private SwordController swordController;
 
     public string startPoint;
     public static bool isDashing = false;
+    private int totalMoney = 0;
 
     // private Vector2 movement;
     private static bool playerExists;
@@ -23,6 +26,11 @@ public class PlayerController : MonoBehaviour
     private float xVal;
     private float yVal;
     public bool attacking = false;
+
+    public int playerMoney {
+        get {return totalMoney;}
+        set {totalMoney = value;}
+    }
     
     void Awake() {
         if (!playerExists) {
@@ -51,6 +59,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update() {
+        moneyText.text = totalMoney.ToString();
         if (!attacking) {
             xVal = Input.GetAxisRaw("Horizontal") * Time.deltaTime * moveSpeed;
             yVal = Input.GetAxisRaw("Vertical") * Time.deltaTime * moveSpeed;

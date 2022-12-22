@@ -26,7 +26,7 @@ public class LifeBar : MonoBehaviour
             i.fillAmount = heartFill;
             heartFill -= 1;
         }
-        Debug.Log("Updated hearts!");
+        //Debug.Log("Updated hearts!");
     }
 
     void addHearts() {
@@ -38,6 +38,6 @@ public class LifeBar : MonoBehaviour
             GameObject hp = Instantiate(heart, this.transform);
             heartList.Add(hp.GetComponent<Image>());
         }
-        Debug.Log("Added a heart!");
+        //Debug.Log("Added a heart!");
     }
 }

@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] int life;
     [SerializeField] float distanceLimit;
+    public int moneyYield;
 
     void Start() {
         body = GetComponent<Rigidbody2D>();
@@ -34,16 +35,16 @@ public class EnemyController : MonoBehaviour
             float deltaX = player.transform.position.x - this.transform.position.x;
             anim.SetFloat("runSpeed", Mathf.Abs(deltaX));
             if (deltaX < 0 && isRight)
-                {Flip ();}
+                Flip ();
             if (deltaX > 0 && !isRight)
-                {Flip ();}
+                Flip ();
 
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
         } else {
             if (xVal < 0 && isRight)
-                {Flip(); Debug.Log("Flipped Left");}
+                Flip();
             if (xVal > 0 && !isRight)
-                {Flip (); Debug.Log("Flipped Right");}
+                Flip ();
             IdleMoving();
         }
     }
@@ -83,6 +84,7 @@ public class EnemyController : MonoBehaviour
     IEnumerator DeadAnim() {
         speed = 0f;
         anim.SetTrigger("Dead");
+        player.GetComponent<PlayerController>().playerMoney += moneyYield;
         yield return new WaitForSeconds(1f);
         Destroy(this.gameObject);
     }
