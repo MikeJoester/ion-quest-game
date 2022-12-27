@@ -11,10 +11,12 @@ public class ChestTrigger : MonoBehaviour
     private bool isOpened = false;
 
     [SerializeField] GameObject spreadEffect;
+    [SerializeField] GameObject dialogueBox;
 
     void Start() {
         anim = GetComponent<Animator>();
         inven = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        dialogueBox.SetActive(false);
     }
 
     void Update() {
@@ -32,7 +34,8 @@ public class ChestTrigger : MonoBehaviour
         spreadEffect.SetActive(true);
         bool pickedUp = Inventory.invenInstance.Add(item);
         if (pickedUp) {
-            Debug.Log($"Obtained {item.name}");
+            // Debug.Log($"Obtained {item.name}");
+            dialogueBox.SetActive(true);
         }
     }
 

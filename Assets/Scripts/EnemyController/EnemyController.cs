@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
     private bool isRight = false;
     private GameObject player;
     private HealthManager playerHealth;
+    private Collider2D enemyBox;
 
     [SerializeField] float speed;
     [SerializeField] int life;
@@ -22,6 +23,7 @@ public class EnemyController : MonoBehaviour
 
     void Start() {
         body = GetComponent<Rigidbody2D>();
+        enemyBox = GetComponent<Collider2D>();
         anim = GetComponent<Animator>();
         playerHealth = FindObjectOfType<HealthManager>();
         enemySprite = GetComponent<SpriteRenderer>();
@@ -29,24 +31,25 @@ public class EnemyController : MonoBehaviour
     }
 
     void Update() {
+        if (this.gameObject.tag != "Dummy") {
+            distance = Vector2.Distance(transform.position, player.transform.position);
+            if (distance < distanceLimit) {
+                float deltaX = player.transform.position.x - this.transform.position.x;
+                anim.SetFloat("runSpeed", Mathf.Abs(deltaX));
+                if (deltaX < 0 && isRight)
+                    Flip ();
+                if (deltaX > 0 && !isRight)
+                    Flip ();
 
-        distance = Vector2.Distance(transform.position, player.transform.position);
-        if (distance < distanceLimit) {
-            float deltaX = player.transform.position.x - this.transform.position.x;
-            anim.SetFloat("runSpeed", Mathf.Abs(deltaX));
-            if (deltaX < 0 && isRight)
-                Flip ();
-            if (deltaX > 0 && !isRight)
-                Flip ();
-
-            transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
-        } else {
-            if (xVal < 0 && isRight)
-                Flip();
-            if (xVal > 0 && !isRight)
-                Flip ();
-            IdleMoving();
-        }
+                transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
+            } else {
+                if (xVal < 0 && isRight)
+                    Flip();
+                if (xVal > 0 && !isRight)
+                    Flip ();
+                IdleMoving();
+            }
+        } 
     }
 
     private void IdleMoving() {
@@ -76,13 +79,14 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        if (collider.gameObject.tag == "Player") {
+        if ((collider.gameObject.tag == "Player") && (this.gameObject.tag != "Dummy")) {
             playerHealth.TakeDmg();
         }
     }
 
     IEnumerator DeadAnim() {
         speed = 0f;
+        enemyBox.enabled = false;
         anim.SetTrigger("Dead");
         player.GetComponent<PlayerController>().playerMoney += moneyYield;
         yield return new WaitForSeconds(1f);
