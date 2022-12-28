@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] int life;
     [SerializeField] float distanceLimit;
+    [SerializeField] float hitDelayTimer;
     public int moneyYield;
 
     void Start() {
@@ -70,6 +71,7 @@ public class EnemyController : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
+        
         if (collider.gameObject.tag == "Weapon") {
             life -= 1;
             if (life <= 0) {
@@ -94,8 +96,11 @@ public class EnemyController : MonoBehaviour
     }
 
     IEnumerator HitAnim() {
+        float tempSpeed = speed;
+        speed = 0f;
         anim.SetBool("isHit", true);
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(hitDelayTimer);
         anim.SetBool("isHit", false);
+        speed = tempSpeed;
     }
 }

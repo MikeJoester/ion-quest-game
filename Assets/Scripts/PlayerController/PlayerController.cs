@@ -26,12 +26,17 @@ public class PlayerController : MonoBehaviour
     private bool isRight = true;
     private float xVal;
     private float yVal;
-    public bool isInteract = false;
+    private bool isInteract = false;
     public bool attacking = false;
     
     public int playerMoney {
         get {return totalMoney;}
         set {totalMoney = value;}
+    }
+
+    public bool setInteract {
+        get {return isInteract;}
+        set {isInteract = value;}
     }
     
     void Awake() {

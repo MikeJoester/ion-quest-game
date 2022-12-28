@@ -13,6 +13,7 @@ public class TextBox : MonoBehaviour
     private float textDelay = 0.07f;
     // static int CharPhase = 0;
     [SerializeField] GameObject DialogueScreen;
+    private GameObject player;
 
     // [Header("Character")]
     // [SerializeField] Image Character;
@@ -21,14 +22,14 @@ public class TextBox : MonoBehaviour
     // [SerializeField] int AppearIndex;
 
     private int index;
-    public PlayerController player;
 
     void Start()
     {
         textComponent.text = string.Empty;
+        player = GameObject.Find("Player");
         // charBorder.enabled = true;
         // Character.enabled = true;
-        player.isInteract = true;
+        player.GetComponent<PlayerController>().setInteract = true;
         StartDialogue();
     }
 
@@ -75,7 +76,7 @@ public class TextBox : MonoBehaviour
         }
         else {
             DialogueScreen.SetActive(false);
-            player.isInteract = false;
+            player.GetComponent<PlayerController>().setInteract = false;
         }
     }
 }
