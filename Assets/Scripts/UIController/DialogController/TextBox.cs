@@ -10,7 +10,7 @@ public class TextBox : MonoBehaviour
     [Header("Dialogue")]
     [SerializeField] TextMeshProUGUI textComponent;
     [SerializeField] string[] lines;
-    float textDelay = 0.07f;
+    private float textDelay = 0.07f;
     // static int CharPhase = 0;
     [SerializeField] GameObject DialogueScreen;
 
@@ -21,12 +21,14 @@ public class TextBox : MonoBehaviour
     // [SerializeField] int AppearIndex;
 
     private int index;
+    public PlayerController player;
 
     void Start()
     {
         textComponent.text = string.Empty;
         // charBorder.enabled = true;
         // Character.enabled = true;
+        player.isInteract = true;
         StartDialogue();
     }
 
@@ -73,6 +75,7 @@ public class TextBox : MonoBehaviour
         }
         else {
             DialogueScreen.SetActive(false);
+            player.isInteract = false;
         }
     }
 }

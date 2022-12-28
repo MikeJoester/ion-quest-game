@@ -11,9 +11,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject gameUI;
     [SerializeField] GameObject deadAlert;
     [SerializeField] TextMeshProUGUI moneyText;
+    [SerializeField] SwordController swordController;
     private Rigidbody2D rb;
     private Animator animator;
-    private SwordController swordController;
+    
 
     public string startPoint;
     public static bool isDashing = false;
@@ -25,8 +26,9 @@ public class PlayerController : MonoBehaviour
     private bool isRight = true;
     private float xVal;
     private float yVal;
+    public bool isInteract = false;
     public bool attacking = false;
-
+    
     public int playerMoney {
         get {return totalMoney;}
         set {totalMoney = value;}
@@ -50,22 +52,21 @@ public class PlayerController : MonoBehaviour
     }
 
     void Start() {
-
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        swordController = FindObjectOfType<SwordController>();
+        // swordController = FindObjectOfType<SwordController>();
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
     }
 
     void Update() {
         moneyText.text = totalMoney.ToString();
-        if (!attacking) {
-            xVal = Input.GetAxisRaw("Horizontal") * Time.deltaTime * moveSpeed;
-            yVal = Input.GetAxisRaw("Vertical") * Time.deltaTime * moveSpeed;
-        } else {
+        if (attacking || isInteract) {
             xVal = 0;
             yVal = 0;
+        } else {
+            xVal = Input.GetAxisRaw("Horizontal") * Time.deltaTime * moveSpeed;
+            yVal = Input.GetAxisRaw("Vertical") * Time.deltaTime * moveSpeed;
         }
 
         if (Input.GetKey("z")) {isDashing = true;} else {isDashing = false;}
