@@ -6,16 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class LoadArea : MonoBehaviour
 {
-    [SerializeField] string sceneName, exitPoint, transitionTrigger;
+    [SerializeField] string sceneName, exitPoint;
     [SerializeField] Animator doorAnim;
-    [SerializeField] Animator sceneTransition;
+    [SerializeField] GameObject sceneTransition;
     [SerializeField] float loadDelay;
     private PlayerController player;
+    private Animator sceneAnim;
 
 
     void Start() {
         player = FindObjectOfType<PlayerController>();
         doorAnim = GetComponent<Animator>();
+        sceneAnim = sceneTransition.GetComponent<Animator>();
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
@@ -34,9 +36,11 @@ public class LoadArea : MonoBehaviour
         }
         
         yield return new WaitForSeconds(loadDelay);
-        sceneTransition.SetTrigger(transitionTrigger);
+        sceneTransition.SetActive(true);
         yield return new WaitForSeconds(1f);
+
         SceneManager.LoadScene(sceneName);
+
         player.Fade(false);
         player.setInteract = false;
     }

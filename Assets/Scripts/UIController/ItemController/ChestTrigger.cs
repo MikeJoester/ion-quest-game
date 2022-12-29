@@ -11,12 +11,14 @@ public class ChestTrigger : MonoBehaviour
     private bool isOpened = false;
 
     [SerializeField] GameObject spreadEffect;
+    [SerializeField] GameObject interactArrow;
     [SerializeField] GameObject dialogueBox;
 
     void Start() {
         anim = GetComponent<Animator>();
         inven = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         dialogueBox.SetActive(false);
+        interactArrow.SetActive(false);
     }
 
     void Update() {
@@ -25,6 +27,7 @@ public class ChestTrigger : MonoBehaviour
             anim.SetBool("isOpen", true);
             StartCoroutine(SpawnSpread());
             isOpened = true;
+            interactArrow.SetActive(false);
             }
         }  
     }
@@ -42,12 +45,14 @@ public class ChestTrigger : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if((other.gameObject.tag == "Player")) {
             collided = true;
+            interactArrow.SetActive(true);
         }
     }
 
     void OnTriggerExit2D(Collider2D other) {
         if((other.gameObject.tag == "Player")) {
             collided = false;
+            interactArrow.SetActive(false);
         }
     }
 }

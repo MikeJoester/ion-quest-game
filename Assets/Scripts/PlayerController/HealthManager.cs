@@ -32,7 +32,7 @@ public class HealthManager : MonoBehaviour
     public void TakeDmg() {
         health -= 1;
         if (health <= 0) {
-            player.attacking = true;
+            player.setInteract = true;
             StartCoroutine(player.PlayerDead());
             //return;
         }

@@ -6,11 +6,15 @@ public class DialogTrigger : MonoBehaviour
 {
     private bool triggerEntered = false;
     public GameObject DialogueScreen;
+    [SerializeField] GameObject interactArrow;
 
     void Update() {
+        interactArrow.SetActive(triggerEntered);
+
         if (Input.GetKeyDown(KeyCode.F) && triggerEntered == true) {
             DialogueScreen.SetActive(true);
         }
+        
     }
 
     void OnTriggerEnter2D(Collider2D collider) {

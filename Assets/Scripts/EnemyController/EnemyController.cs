@@ -73,7 +73,7 @@ public class EnemyController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider) {
         
         if (collider.gameObject.tag == "Weapon") {
-            life -= 1;
+            life -= player.GetComponent<PlayerController>().getAtk;
             if (life <= 0) {
                 StartCoroutine(DeadAnim());
             } else {
@@ -83,6 +83,9 @@ public class EnemyController : MonoBehaviour
 
         if ((collider.gameObject.tag == "Player") && (this.gameObject.tag != "Dummy")) {
             playerHealth.TakeDmg();
+            if ((playerHealth.Health) > 0) {
+                StartCoroutine(player.GetComponent<PlayerController>().isHitAnim());
+            }
         }
     }
 

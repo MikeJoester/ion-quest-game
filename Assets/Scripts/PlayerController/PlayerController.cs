@@ -7,11 +7,13 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
     private float moveSpeed = 3f;
+    private int attackStat = 2;
     [SerializeField] GameObject dust;
     [SerializeField] GameObject gameUI;
     [SerializeField] GameObject deadAlert;
     [SerializeField] TextMeshProUGUI moneyText;
     [SerializeField] SwordController swordController;
+    [SerializeField] float damageDelay;
     private Rigidbody2D rb;
     private Animator animator;
     
@@ -37,6 +39,11 @@ public class PlayerController : MonoBehaviour
     public bool setInteract {
         get {return isInteract;}
         set {isInteract = value;}
+    }
+
+    public int getAtk {
+        get {return attackStat;}
+        set {attackStat = value;}
     }
     
     void Awake() {
@@ -145,5 +152,13 @@ public class PlayerController : MonoBehaviour
 
     public void Fade(bool fading) {
         animator.SetBool("isEnter", fading);
+    }
+
+    public IEnumerator isHitAnim() {
+        Collider2D collidebox = this.GetComponent<Collider2D>();
+        animator.SetTrigger("isHit");
+        collidebox.enabled = false;
+        yield return new WaitForSeconds(damageDelay);
+        collidebox.enabled = true;
     }
 }
