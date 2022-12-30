@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
     public GameObject equipMenu;
+
+    private Canvas canvas;
+
+    void Start() {
+        canvas = GetComponent<Canvas>();
+    }
     
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
@@ -22,6 +29,7 @@ public class PauseMenu : MonoBehaviour {
         equipMenu.SetActive(true);
         Time.timeScale = 1f;
         GameIsPaused = false;
+        canvas.sortingOrder = -1;
     }
 
     void Pause() {
@@ -29,5 +37,6 @@ public class PauseMenu : MonoBehaviour {
         equipMenu.SetActive(false);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        canvas.sortingOrder = 1;
     }
 }

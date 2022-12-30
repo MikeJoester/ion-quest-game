@@ -7,6 +7,7 @@ public class BossTransition : MonoBehaviour
     public Collider2D wall;
     public GameObject bossInfo;
     void Start() {
+        
     }
 
     // Update is called once per frame
