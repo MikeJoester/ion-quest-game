@@ -22,6 +22,10 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float hitDelayTimer;
     public int moneyYield;
 
+    public int enemyHP {
+        get { return life;}
+    }
+
     void Start() {
         body = GetComponent<Rigidbody2D>();
         enemyBox = GetComponent<Collider2D>();
