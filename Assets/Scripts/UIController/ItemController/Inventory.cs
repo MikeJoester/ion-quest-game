@@ -18,7 +18,12 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public List<Item> itemList = new List<Item>();
+    // public List<Item> itemList = new List<Item>();
+    public List<Item> itemList;
+    public List<Item> gsItemList {
+        get {return itemList;}
+        set {itemList = value;}
+    }
 
     public bool Add(Item i) {
         if (!i.isDefaultItem) {

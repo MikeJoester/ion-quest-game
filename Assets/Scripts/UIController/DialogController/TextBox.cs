@@ -14,6 +14,7 @@ public class TextBox : MonoBehaviour
     // static int CharPhase = 0;
     [SerializeField] GameObject DialogueScreen;
     [SerializeField] TextMeshProUGUI objectName;
+    private static bool ready2Activated = true;
     private GameObject player;
 
     // [Header("Character")]
@@ -25,6 +26,10 @@ public class TextBox : MonoBehaviour
     private int index;
 
     void Awake() {
+        if (DialogueScreen.name == "FirstText" && ready2Activated == false) {
+            DialogueScreen.SetActive(false);
+        }
+
         if (objectName != null) {
             objectName.enabled = true;
             objectName.text = PlayerPrefs.GetString("name");
@@ -83,6 +88,10 @@ public class TextBox : MonoBehaviour
             StartCoroutine(TypeLine());
         }
         else {
+            if (DialogueScreen.name == "FirstText") {
+                ready2Activated = false;
+            }
+
             DialogueScreen.SetActive(false);
             player.GetComponent<PlayerController>().setInteract = false;
         }

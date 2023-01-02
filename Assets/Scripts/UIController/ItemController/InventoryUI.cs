@@ -8,6 +8,14 @@ public class InventoryUI : MonoBehaviour
     Inventory inventory;
     ItemSlot[] slots;
 
+    public static InventoryUI ivUIinstance;
+
+    private void Awake() {
+        if (ivUIinstance == null) {
+            ivUIinstance = this;
+        }
+    }
+
     void Start() {
         inventory = Inventory.invenInstance;
         inventory.onItemChangedCallback += UpdateUI;
@@ -15,7 +23,7 @@ public class InventoryUI : MonoBehaviour
         slots = itemsContainer.GetComponentsInChildren<ItemSlot>();
     }
 
-    void UpdateUI() {
+    public void UpdateUI() {
         // Debug.Log("Updating UI!");
         for (int i = 0; i < slots.Length; i++) {
             if (i < inventory.itemList.Count) {

@@ -24,10 +24,10 @@ public class ChestTrigger : MonoBehaviour
     void Update() {
         if (!isOpened) {
             if ((collided) && (Input.GetKeyDown("f"))) {
-            anim.SetBool("isOpen", true);
-            StartCoroutine(SpawnSpread());
-            isOpened = true;
-            interactArrow.SetActive(false);
+                anim.SetBool("isOpen", true);
+                StartCoroutine(SpawnSpread());
+                isOpened = true;
+                interactArrow.SetActive(false);
             }
         }  
     }

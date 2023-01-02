@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossTransition : MonoBehaviour
 {
-    public Collider2D wall;
+    public GameObject bossWall;
     public GameObject bossInfo;
     void Start() {
         
@@ -17,7 +17,7 @@ public class BossTransition : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Player") {
-            wall.isTrigger = false;
+            bossWall.SetActive(true);
             bossInfo.SetActive(true);
         }
     }

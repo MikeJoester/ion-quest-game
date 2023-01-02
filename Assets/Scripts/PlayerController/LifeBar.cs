@@ -9,6 +9,13 @@ public class LifeBar : MonoBehaviour
     [SerializeField] List<Image> heartList;
 
     HealthManager healthManager;
+    public static LifeBar lifeBarInstance;
+
+    private void Awake() {
+        if (lifeBarInstance == null) {
+            lifeBarInstance = this;
+        }
+    }
 
     void Start() {
         healthManager = HealthManager.instance;
@@ -20,13 +27,13 @@ public class LifeBar : MonoBehaviour
         }
     }
 
-    void updateHearts() {
+    public void updateHearts() {
         int heartFill = healthManager.Health;
         foreach(Image i in heartList) {
             i.fillAmount = heartFill;
             heartFill -= 1;
         }
-        //Debug.Log("Updated hearts!");
+        // Debug.Log("Updated hearts!");
     }
 
     void addHearts() {

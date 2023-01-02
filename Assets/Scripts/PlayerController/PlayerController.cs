@@ -6,6 +6,7 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController playerInstance;
     private float moveSpeed = 3f;
     private int attackStat = 2;
     [SerializeField] GameObject dust;
@@ -25,12 +26,11 @@ public class PlayerController : MonoBehaviour
     // private Vector2 movement;
     private static bool playerExists;
     private static bool UIExists;
-    private bool isRight = true;
+    private bool isRight;
     private float xVal;
     private float yVal;
     private bool isInteract = false;
     public bool attacking = false;
-    
     public int playerMoney {
         get {return totalMoney;}
         set {totalMoney = value;}
@@ -45,8 +45,19 @@ public class PlayerController : MonoBehaviour
         get {return attackStat;}
         set {attackStat = value;}
     }
+
+    public Vector3 playerLocation {
+        get {return this.transform.position;}
+        set {this.transform.position = value;}
+    }
     
     void Awake() {
+        if (playerInstance == null) {
+            playerInstance = this;
+        }
+
+        isRight = true;
+
         if (!playerExists) {
             playerExists = true;
             DontDestroyOnLoad(transform.gameObject);
@@ -96,6 +107,7 @@ public class PlayerController : MonoBehaviour
         if (xVal > 0 && !isRight) {
             Flip();
         }
+
         if (xVal < 0 && isRight) {
             Flip();
         }
