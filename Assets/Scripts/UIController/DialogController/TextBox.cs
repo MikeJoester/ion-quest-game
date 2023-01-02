@@ -13,6 +13,7 @@ public class TextBox : MonoBehaviour
     private float textDelay = 0.07f;
     // static int CharPhase = 0;
     [SerializeField] GameObject DialogueScreen;
+    [SerializeField] TextMeshProUGUI objectName;
     private GameObject player;
 
     // [Header("Character")]
@@ -22,6 +23,13 @@ public class TextBox : MonoBehaviour
     // [SerializeField] int AppearIndex;
 
     private int index;
+
+    void Awake() {
+        if (objectName != null) {
+            objectName.enabled = true;
+            objectName.text = PlayerPrefs.GetString("name");
+        }
+    }
 
     void Start()
     {

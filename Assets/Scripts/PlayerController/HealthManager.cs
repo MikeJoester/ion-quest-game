@@ -16,6 +16,7 @@ public class HealthManager : MonoBehaviour
 
     public int Health {
         get { return health; }
+        set {health = value;}
     }
 
     void Awake() {
