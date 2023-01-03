@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour {
     public static bool GameIsPaused = false;
@@ -15,7 +16,7 @@ public class PauseMenu : MonoBehaviour {
     }
     
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if ((Input.GetKeyDown(KeyCode.Escape)) && (SceneManager.GetActiveScene().buildIndex != 0)) {
             if (GameIsPaused) {
                 Resume();
             } else {

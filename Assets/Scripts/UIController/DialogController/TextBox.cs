@@ -10,7 +10,7 @@ public class TextBox : MonoBehaviour
     [Header("Dialogue")]
     [SerializeField] TextMeshProUGUI textComponent;
     [SerializeField] string[] lines;
-    private float textDelay = 0.07f;
+    private float textDelay = 0.04f;
     // static int CharPhase = 0;
     [SerializeField] GameObject DialogueScreen;
     [SerializeField] TextMeshProUGUI objectName;

@@ -45,6 +45,7 @@ public class SaveData : MonoBehaviour
         PlayerController.playerInstance.playerMoney = playerData.playerMoney;
         HealthManager.instance.Health = playerData.playerHp;
         LifeBar.lifeBarInstance.updateHearts();
+        PlayerController.playerInstance.startPoint = "";
         Inventory.invenInstance.gsItemList = playerData.itemList;
         InventoryUI.ivUIinstance.UpdateUI();
         PlayerController.playerInstance.playerLocation = playerData.playerLoc;

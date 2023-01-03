@@ -30,13 +30,13 @@ public class LoadArea : MonoBehaviour
         }
     }
 
-    IEnumerator LoadLevel() {
+    public IEnumerator LoadLevel() {
         if (doorAnim != null) {
             doorAnim.SetBool("isEnter", true);
         }
         
         yield return new WaitForSeconds(loadDelay);
-        sceneTransition.SetActive(true);
+        if (sceneTransition != null) sceneTransition.SetActive(true);
         yield return new WaitForSeconds(1f);
 
         SceneManager.LoadScene(sceneName);
