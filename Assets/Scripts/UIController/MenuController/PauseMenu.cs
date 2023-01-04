@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
-    public GameObject equipMenu;
+    // public GameObject equipMenu;
 
     private Canvas canvas;
 
@@ -27,7 +27,7 @@ public class PauseMenu : MonoBehaviour {
 
     public void Resume() {
         pauseMenuUI.SetActive(false);
-        equipMenu.SetActive(true);
+        // equipMenu.SetActive(true);
         Time.timeScale = 1f;
         GameIsPaused = false;
         canvas.sortingOrder = -1;
@@ -35,7 +35,7 @@ public class PauseMenu : MonoBehaviour {
 
     void Pause() {
         pauseMenuUI.SetActive(true);
-        equipMenu.SetActive(false);
+        // equipMenu.SetActive(false);
         Time.timeScale = 0f;
         GameIsPaused = true;
         canvas.sortingOrder = 1;

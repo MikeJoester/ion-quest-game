@@ -33,22 +33,22 @@ public class SaveData : MonoBehaviour
 
     private void getPlayerData() {
         playerData.playerName = PlayerPrefs.GetString("name");
+        playerData.playerLoc = PlayerController.playerInstance.playerLocation;
         playerData.playerMoney = PlayerController.playerInstance.playerMoney;
         playerData.playerHp = HealthManager.instance.Health;
         playerData.itemList = Inventory.invenInstance.gsItemList;
-        playerData.playerLoc = PlayerController.playerInstance.playerLocation;
         playerData.activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     private void setPlayerData() {
         PlayerPrefs.SetString("name", playerData.playerName);
+        PlayerController.playerInstance.playerLocation = playerData.playerLoc;
+        Inventory.invenInstance.gsItemList = playerData.itemList;
+        InventoryUI.ivUIinstance.UpdateUI();
         PlayerController.playerInstance.playerMoney = playerData.playerMoney;
         HealthManager.instance.Health = playerData.playerHp;
         LifeBar.lifeBarInstance.updateHearts();
         PlayerController.playerInstance.startPoint = "";
-        Inventory.invenInstance.gsItemList = playerData.itemList;
-        InventoryUI.ivUIinstance.UpdateUI();
-        PlayerController.playerInstance.playerLocation = playerData.playerLoc;
     }
 
     public void save2Json() {
