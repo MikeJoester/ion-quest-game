@@ -62,8 +62,12 @@ public class SaveData : MonoBehaviour
     public void LoadFromJson() {
         string filePath = Application.persistentDataPath + "/PlayerData.json";
         string inventoryData = System.IO.File.ReadAllText(filePath);
-        playerData = JsonUtility.FromJson<PlayerData>(inventoryData);
-        Invoke("LoadGame", 0.5f);
+        if (inventoryData == "{}") {
+            MainMenu.menuInstance.setAlert(true);
+        } else {
+            playerData = JsonUtility.FromJson<PlayerData>(inventoryData);
+            Invoke("LoadGame", 0.5f);
+        }   
     }
 
     void LoadGame() {

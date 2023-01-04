@@ -20,7 +20,7 @@ public class SavePlayerName : MonoBehaviour
         PlayerPrefs.SetString("name", textBox.text);
         yield return new WaitForSeconds(1f);
         exitTransition.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
