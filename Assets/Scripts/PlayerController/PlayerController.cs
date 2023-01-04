@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
             yVal = Input.GetAxisRaw("Vertical") * Time.deltaTime * moveSpeed;
         }
 
-        if (Input.GetKey("z")) {isDashing = true;} else {isDashing = false;}
+        if (Input.GetKey(KeyCode.LeftShift)) {isDashing = true;} else {isDashing = false;}
 
         if ((xVal != 0 || yVal != 0) && isDashing) {
             moveSpeed = 6.5f;
@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Attack trigger
-        if ((Input.GetKeyDown("x")) && (attacking == false)) {
+        if ((Input.GetKeyDown(KeyCode.Space)) && (attacking == false)) {
             attacking = true;
             StartCoroutine(AtkDelay());
         }

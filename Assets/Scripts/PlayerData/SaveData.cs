@@ -37,6 +37,7 @@ public class SaveData : MonoBehaviour
         playerData.playerMoney = PlayerController.playerInstance.playerMoney;
         playerData.playerHp = HealthManager.instance.Health;
         playerData.itemList = Inventory.invenInstance.gsItemList;
+        // Debug.Log(playerData.itemList[0]);
         playerData.activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
