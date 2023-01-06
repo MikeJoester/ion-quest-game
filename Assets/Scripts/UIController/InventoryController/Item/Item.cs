@@ -10,6 +10,20 @@ public class Item : ScriptableObject {
     public bool isDefaultItem = false;
 
     public virtual void Use() {
-        Debug.Log($"Using {name}");
+        // Debug.Log($"Using {name}");
+        switch (name) {
+            case "Potion":
+                FindObjectOfType<AudioController>().playClip("Heal");
+                HealthManager.instance.Healing(2);
+                break;
+            case "BoostPotion":
+                FindObjectOfType<AudioController>().playClip("Stamina");
+                StaminaController.instance.setCurrentStamina = 150f;
+                break;
+        }
+    }
+
+    public void removeFromInven() {
+        Inventory.invenInstance.Remove(this);
     }
 }

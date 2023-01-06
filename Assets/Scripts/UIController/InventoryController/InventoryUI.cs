@@ -8,6 +8,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] Transform equipContainer;
     Inventory inventory;
     ItemSlot[] slots;
+    ItemSlot[] equipmentSlots;
 
     public static InventoryUI ivUIinstance;
 
@@ -22,6 +23,7 @@ public class InventoryUI : MonoBehaviour
         inventory.onItemChangedCallback += UpdateUI;
 
         slots = itemsContainer.GetComponentsInChildren<ItemSlot>();
+        equipmentSlots = equipContainer.GetComponentsInChildren<ItemSlot>();
     }
 
     public void UpdateUI() {
@@ -33,5 +35,9 @@ public class InventoryUI : MonoBehaviour
                 slots[i].ClearSlot();
             }
         }
+        if (EquipmentManager.instance.equipmentList[0] != null)
+            equipmentSlots[0].AddItem(EquipmentManager.instance.equipmentList[0]);
+        if (EquipmentManager.instance.equipmentList[1] != null)
+            equipmentSlots[1].AddItem(EquipmentManager.instance.equipmentList[1]);
     }
 }

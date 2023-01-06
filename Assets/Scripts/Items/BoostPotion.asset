@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fb6302865246df439d9301ad811d1d5, type: 3}
+  m_Script: {fileID: 11500000, guid: c11e09899d257c64094b91c14a446f4a, type: 3}
   m_Name: BoostPotion
   m_EditorClassIdentifier: 
-  name: EnergyPotion
+  name: BoostPotion
   icon: {fileID: -1640464837, guid: e0bd325b039cc7c4da59c9eab6699c69, type: 3}
   isDefaultItem: 0

@@ -14,6 +14,10 @@ public class StaminaController : MonoBehaviour
     
     public static StaminaController instance;
 
+    public float setCurrentStamina {
+        set {currentStamina = value;}
+    }
+
     void Awake() {
         if (instance == null){
              instance = this;

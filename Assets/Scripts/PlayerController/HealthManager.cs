@@ -8,7 +8,7 @@ public class HealthManager : MonoBehaviour
     public static HealthManager instance;
     public int maxHealth;
     private PlayerController player;
-    int healingAmount = 1;
+    // int healingAmount = 1;
     int health;
 
     public event Action DamageTaken;
@@ -43,7 +43,7 @@ public class HealthManager : MonoBehaviour
         }
     }
 
-    public void Healing() {
+    public void Healing(int healingAmount) {
         if (health >= maxHealth) {
             return;
         }

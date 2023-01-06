@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f92077eba9af19f49a6676aebcdf87ef, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ab7251dca226404886000b047c1bd73, type: 3}
   m_Name: LongSword
   m_EditorClassIdentifier: 
   name: Long Sword

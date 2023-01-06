@@ -12,7 +12,8 @@ public class ItemSlot : MonoBehaviour
         
         icon.sprite = item.icon;
         icon.enabled = true;
-        removeBtn.interactable = true;
+        if (removeBtn != null)
+            removeBtn.interactable = true;
     }
 
     public void ClearSlot() {
@@ -20,7 +21,8 @@ public class ItemSlot : MonoBehaviour
 
         icon.sprite = null;
         icon.enabled = false;
-        removeBtn.interactable = false;
+        if (removeBtn != null)
+            removeBtn.interactable = false;
     }
 
     public void OnRemoveBtn() {

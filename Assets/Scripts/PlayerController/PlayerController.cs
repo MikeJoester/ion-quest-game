@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController playerInstance;
     private float moveSpeed = 3f;
-    private int attackStat = 2;
+    private int attackStat = 1;
     [SerializeField] GameObject dust;
     [SerializeField] GameObject gameUI;
     [SerializeField] GameObject deadAlert;
@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     
     public string startPoint;
+    private bool isDead = false;
     public static bool isDashing = false;
     private int totalMoney = 0;
 
@@ -83,7 +84,7 @@ public class PlayerController : MonoBehaviour
 
     void Update() {
         moneyText.text = totalMoney.ToString();
-        if (attacking || isInteract) {
+        if (attacking || isInteract || isDead) {
             xVal = 0;
             yVal = 0;
         } else {
@@ -128,7 +129,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Attack trigger
-        if ((Input.GetKeyDown(KeyCode.Space)) && (attacking == false)) {
+        if ((Input.GetKeyDown(KeyCode.Space)) && (attacking == false) && !isDead) {
             attacking = true;
             StartCoroutine(AtkDelay());
         }
@@ -149,13 +150,16 @@ public class PlayerController : MonoBehaviour
     }
 
     public IEnumerator PlayerDead() {
+        isDead = true;
         FindObjectOfType<AudioController>().playClip("DeathSound");
         animator.SetTrigger("Dead");
         yield return new WaitForSeconds(1.5f);
         deadAlert.SetActive(true);
         yield return new WaitForSeconds(6f);
         isInteract = false;
+        attacking = false;
         deadAlert.SetActive(false);
+        isDead = false;
         SaveData.dataInstance.LoadFromJson();
     }
 

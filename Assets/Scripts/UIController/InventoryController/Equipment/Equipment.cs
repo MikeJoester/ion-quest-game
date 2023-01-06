@@ -11,8 +11,10 @@ public class Equipment : Item {
 
     public override void Use() {
         base.Use();
-        EquipmentManager.instance.Equip(this); 
+        EquipmentManager.instance.Equip(this);
+        PlayerController.playerInstance.getAtk = damageModifier;
+        removeFromInven();
     }
 }
 
-public enum EquipmentSlot {Weapon, Shield}
+public enum EquipmentSlot {Weapon, Shield};

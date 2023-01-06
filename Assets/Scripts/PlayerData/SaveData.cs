@@ -15,6 +15,8 @@ public class SaveData : MonoBehaviour
         public Vector3 playerLoc;
 
         public int activeSceneIndex;
+
+        public Equipment[] playerEquipment;
     }
 
     private GameObject exitTransition;
@@ -38,6 +40,7 @@ public class SaveData : MonoBehaviour
         playerData.playerMoney = PlayerController.playerInstance.playerMoney;
         playerData.playerHp = HealthManager.instance.Health;
         playerData.itemList = Inventory.invenInstance.gsItemList;
+        playerData.playerEquipment = EquipmentManager.instance.equipmentList;
         // Debug.Log(playerData.itemList[0]);
         if(SceneManager.GetActiveScene().buildIndex == 0){
             playerData.activeSceneIndex = 1;
@@ -50,6 +53,7 @@ public class SaveData : MonoBehaviour
         PlayerPrefs.SetString("name", playerData.playerName);
         PlayerController.playerInstance.playerLocation = playerData.playerLoc;
         Inventory.invenInstance.gsItemList = playerData.itemList;
+        EquipmentManager.instance.equipmentList = playerData.playerEquipment;
         InventoryUI.ivUIinstance.UpdateUI();
         PlayerController.playerInstance.playerMoney = playerData.playerMoney;
         HealthManager.instance.Health = playerData.playerHp;
