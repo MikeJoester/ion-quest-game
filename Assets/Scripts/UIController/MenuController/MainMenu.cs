@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
             menuInstance = this;
         }
     }
+
     public void Quit() {
         Application.Quit();
     }

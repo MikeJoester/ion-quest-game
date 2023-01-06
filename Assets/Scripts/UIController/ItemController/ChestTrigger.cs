@@ -8,12 +8,11 @@ public class ChestTrigger : MonoBehaviour
     private Inventory inven;
     public Item item;
     private bool collided = false;
-    private bool isOpened = false;
+    public bool isOpened = false;
 
     [SerializeField] GameObject spreadEffect;
     [SerializeField] GameObject interactArrow;
     [SerializeField] GameObject dialogueBox;
-
     void Start() {
         anim = GetComponent<Animator>();
         inven = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
@@ -22,14 +21,17 @@ public class ChestTrigger : MonoBehaviour
     }
 
     void Update() {
-        if (!isOpened) {
+        if (isOpened) {
+            anim.SetBool("isOpen", true);
+        }  else {
             if ((collided) && (Input.GetKeyDown("f"))) {
                 anim.SetBool("isOpen", true);
                 StartCoroutine(SpawnSpread());
+                FindObjectOfType<AudioController>().playClip("Obtain");
                 isOpened = true;
                 interactArrow.SetActive(false);
             }
-        }  
+        }
     }
 
     IEnumerator SpawnSpread(){

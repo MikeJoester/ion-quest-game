@@ -14,7 +14,7 @@ public class TextBox : MonoBehaviour
     // static int CharPhase = 0;
     [SerializeField] GameObject DialogueScreen;
     [SerializeField] TextMeshProUGUI objectName;
-    private static bool ready2Activated = true;
+    private bool ready2Activated = true;
     private GameObject player;
 
     // [Header("Character")]
@@ -26,6 +26,7 @@ public class TextBox : MonoBehaviour
     private int index;
 
     void Awake() {
+
         if (DialogueScreen.name == "FirstText" && ready2Activated == false) {
             DialogueScreen.SetActive(false);
         }
@@ -42,6 +43,7 @@ public class TextBox : MonoBehaviour
         player = GameObject.Find("Player");
         // charBorder.enabled = true;
         // Character.enabled = true;
+        FindObjectOfType<AudioController>().playClip("Select");
         player.GetComponent<PlayerController>().setInteract = true;
         StartDialogue();
     }
@@ -55,8 +57,8 @@ public class TextBox : MonoBehaviour
         // }
         
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.F)) {
-            
             if (textComponent.text == lines[index]) {
+                FindObjectOfType<AudioController>().playClip("Select");
                 NextLine();
 
                 // Character.sprite = spriteArray[CharPhase - AppearIndex];

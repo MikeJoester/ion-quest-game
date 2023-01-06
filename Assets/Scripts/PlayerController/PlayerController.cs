@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     
-
     public string startPoint;
     public static bool isDashing = false;
     private int totalMoney = 0;
@@ -139,6 +138,7 @@ public class PlayerController : MonoBehaviour
         //Starts Attack
         animator.SetBool("isAttacking", true);
         yield return new WaitForSeconds(0.3f);
+        FindObjectOfType<AudioController>().playClip("Slash");
         swordController.Attack();
         yield return new WaitForSeconds(0.3f);
 
@@ -149,9 +149,14 @@ public class PlayerController : MonoBehaviour
     }
 
     public IEnumerator PlayerDead() {
+        FindObjectOfType<AudioController>().playClip("DeathSound");
         animator.SetTrigger("Dead");
         yield return new WaitForSeconds(1.5f);
         deadAlert.SetActive(true);
+        yield return new WaitForSeconds(6f);
+        isInteract = false;
+        deadAlert.SetActive(false);
+        SaveData.dataInstance.LoadFromJson();
     }
 
     private void Flip() {
@@ -168,6 +173,7 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator isHitAnim() {
         Collider2D collidebox = this.GetComponent<Collider2D>();
+        FindObjectOfType<AudioController>().playClip("Hurt");
         animator.SetTrigger("isHit");
         collidebox.enabled = false;
         yield return new WaitForSeconds(damageDelay);

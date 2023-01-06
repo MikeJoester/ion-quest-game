@@ -26,6 +26,7 @@ public class PauseMenu : MonoBehaviour {
     }
 
     public void Resume() {
+        FindObjectOfType<AudioController>().playClip("Select");
         pauseMenuUI.SetActive(false);
         // equipMenu.SetActive(true);
         Time.timeScale = 1f;
@@ -34,6 +35,7 @@ public class PauseMenu : MonoBehaviour {
     }
 
     void Pause() {
+        FindObjectOfType<AudioController>().playClip("Inventory");
         pauseMenuUI.SetActive(true);
         // equipMenu.SetActive(false);
         Time.timeScale = 0f;

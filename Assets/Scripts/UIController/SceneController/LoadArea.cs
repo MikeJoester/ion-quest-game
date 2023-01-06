@@ -33,6 +33,9 @@ public class LoadArea : MonoBehaviour
     public IEnumerator LoadLevel() {
         if (doorAnim != null) {
             doorAnim.SetBool("isEnter", true);
+            FindObjectOfType<AudioController>().playClip("OpenDoor");
+            yield return new WaitForSeconds(1f);
+            FindObjectOfType<AudioController>().playClip("CloseDoor");
         }
         
         yield return new WaitForSeconds(loadDelay);

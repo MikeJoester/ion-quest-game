@@ -5,6 +5,7 @@ using UnityEngine;
 public class InventoryUI : MonoBehaviour
 {
     [SerializeField] Transform itemsContainer;
+    [SerializeField] Transform equipContainer;
     Inventory inventory;
     ItemSlot[] slots;
 

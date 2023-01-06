@@ -97,6 +97,7 @@ public class EnemyController : MonoBehaviour
         speed = 0f;
         enemyBox.enabled = false;
         anim.SetTrigger("Dead");
+        FindObjectOfType<AudioController>().playClip("Dead");
         player.GetComponent<PlayerController>().playerMoney += moneyYield;
         yield return new WaitForSeconds(1f);
         Destroy(this.gameObject);
@@ -105,6 +106,7 @@ public class EnemyController : MonoBehaviour
     IEnumerator HitAnim() {
         float tempSpeed = speed;
         speed = 0f;
+        FindObjectOfType<AudioController>().playClip("Damage");
         anim.SetBool("isHit", true);
         yield return new WaitForSeconds(hitDelayTimer);
         anim.SetBool("isHit", false);

@@ -12,6 +12,7 @@ public class DialogTrigger : MonoBehaviour
         interactArrow.SetActive(triggerEntered);
 
         if (Input.GetKeyDown(KeyCode.F) && triggerEntered == true) {
+            PlayerController.playerInstance.setInteract = true;
             DialogueScreen.SetActive(true);
         }
         
