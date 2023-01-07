@@ -9,10 +9,12 @@ public class BossHPBar : MonoBehaviour
     private BossTransition bossBorder;
     public EnemyController enemyData;
     public GameObject chestObj;
+    public Collider2D bossBorderBox;
     
     void Start() {
         HPbar = GetComponent<Slider>();
         bossBorder = FindObjectOfType<BossTransition>();
+        // bossBorderBox = GetComponent<Collider2D>();
         HPbar.maxValue = enemyData.enemyHP;
     }
 
@@ -27,6 +29,7 @@ public class BossHPBar : MonoBehaviour
     void setActiveChest() {
         bossBorder.bossWall.SetActive(false);
         bossBorder.bossInfo.SetActive(false);
+        bossBorderBox.enabled = false;
         chestObj.transform.position = enemyData.transform.position;
         chestObj.SetActive(true);
     }
