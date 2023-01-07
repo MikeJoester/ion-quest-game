@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Door
   - Weapon
+  - Dummy
+  - BossScene
   layers:
   - Default
   - TransparentFX
@@ -42,4 +44,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Dialog
+    uniqueID: 1141502205
+    locked: 0
+  - name: UI
+    uniqueID: 2704024709
     locked: 0

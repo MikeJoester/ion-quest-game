@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2401135909197788241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2401135909197788247}
+  - component: {fileID: 2401135909197788244}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2401135909197788247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2401135909197788241}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 388, y: 225, z: -11.263253}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2401135909197788244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2401135909197788241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edbb51b313e4d5145b7e66d2948a4b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundClips:
+  - name: Button
+    clip: {fileID: 8300000, guid: a14f84fe4ad14fa458a157cf005e606f, type: 3}
+    audioMixerGroup: {fileID: -1011178667876807741, guid: 173c5a8cca07ad34ea4f8b3eaa5579d7, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DeathSound
+    clip: {fileID: 8300000, guid: 29cb2a170879bb444bf6c5d1fc8c10c7, type: 3}
+    audioMixerGroup: {fileID: -1011178667876807741, guid: 173c5a8cca07ad34ea4f8b3eaa5579d7, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Slash
+    clip: {fileID: 8300000, guid: 58fd6003d9384b74d9543cecd85c18cb, type: 3}
+    audioMixerGroup: {fileID: -1011178667876807741, guid: 173c5a8cca07ad34ea4f8b3eaa5579d7, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Damage
+    clip: {fileID: 8300000, guid: 3313a1f7701264a4db81aa8005761641, type: 3}
+    audioMixerGroup: {fileID: -1011178667876807741, guid: 173c5a8cca07ad34ea4f8b3eaa5579d7, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Save
+    clip: {fileID: 8300000, guid: 4609970acace67e47abb33c55d69b83e, type: 3}
+    audioMixerGroup: {fileID: -1011178667876807741, guid: 173c5a8cca07ad34ea4f8b3eaa5579d7, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Select
+    clip: {fileID: 8300000, guid: 547dbca1eec8d2842aa90dd594a6d136, type: 3}
+    audioMixerGroup: {fileID: -1011178667876807741, guid: 173c5a8cca07ad34ea4f8b3eaa5579d7, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Dead
+    clip: {fileID: 8300000, guid: 07f0fd23dbc2e234fb889a5663ff8aa8, type: 3}
+    audioMixerGroup: {fileID: -4821108570208142592, guid: 173c5a8cca07ad34ea4f8b3eaa5579d7, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Obtain
+    clip: {fileID: 8300000, guid: d5167a10746bf2f47b2d4142acfb0bab, type: 3}
+    audioMixerGroup: {fileID: -1011178667876807741, guid: 173c5a8cca07ad34ea4f8b3eaa5579d7, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Scene1
+    clip: {fileID: 8300000, guid: 3077f781080e8d047a150b31993dbd06, type: 3}
+    audioMixerGroup: {fileID: -4821108570208142592, guid: 173c5a8cca07ad34ea4f8b3eaa5579d7, type: 2}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Inventory
+    clip: {fileID: 8300000, guid: 5061abde93673b34d8815b2c28e4ad17, type: 3}
+    audioMixerGroup: {fileID: -1011178667876807741, guid: 173c5a8cca07ad34ea4f8b3eaa5579d7, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Heal
+    clip: {fileID: 8300000, guid: d5f59e5d40078a14a8e09997d99501a7, type: 3}
+    audioMixerGroup: {fileID: -1011178667876807741, guid: 173c5a8cca07ad34ea4f8b3eaa5579d7, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: OpenDoor
+    clip: {fileID: 8300000, guid: f44a670a28d85f24a9cbc7accc861324, type: 3}
+    audioMixerGroup: {fileID: -1011178667876807741, guid: 173c5a8cca07ad34ea4f8b3eaa5579d7, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CloseDoor
+    clip: {fileID: 8300000, guid: 438d029f65384ea4191dd0ea1596dbe9, type: 3}
+    audioMixerGroup: {fileID: -1011178667876807741, guid: 173c5a8cca07ad34ea4f8b3eaa5579d7, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Hurt
+    clip: {fileID: 8300000, guid: a1c7dad071373af4abdd5ff5ba449acb, type: 3}
+    audioMixerGroup: {fileID: -1011178667876807741, guid: 173c5a8cca07ad34ea4f8b3eaa5579d7, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Stamina
+    clip: {fileID: 8300000, guid: 2295ef8d80a8b8d4ab68646057e1689d, type: 3}
+    audioMixerGroup: {fileID: -1011178667876807741, guid: 173c5a8cca07ad34ea4f8b3eaa5579d7, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MoveItem
+    clip: {fileID: 8300000, guid: 85fb7ba7abd00e441b121a09e52ecaa8, type: 3}
+    audioMixerGroup: {fileID: -1011178667876807741, guid: 173c5a8cca07ad34ea4f8b3eaa5579d7, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

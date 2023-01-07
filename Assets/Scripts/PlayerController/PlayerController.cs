@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class PlayerController : MonoBehaviour
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] TextMeshProUGUI moneyText;
     [SerializeField] SwordController swordController;
     [SerializeField] float damageDelay;
+    [SerializeField] GameObject exitTransition;
     private Rigidbody2D rb;
     private Animator animator;
     
@@ -160,7 +162,13 @@ public class PlayerController : MonoBehaviour
         attacking = false;
         deadAlert.SetActive(false);
         isDead = false;
-        SaveData.dataInstance.LoadFromJson();
+        if (SaveData.dataInstance.returnSaveExist()) {
+            SaveData.dataInstance.LoadFromJson();
+        } else {
+            exitTransition.SetActive(true);
+            yield return new WaitForSeconds(1.5f);
+            SceneManager.LoadScene(0);
+        }
     }
 
     private void Flip() {

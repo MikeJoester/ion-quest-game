@@ -10,13 +10,19 @@ EditorBuildSettings:
     guid: 80c86cd256ed64b4fa3146edf72f1a63
   - enabled: 1
     path: Assets/Scenes/TutorialScene.unity
-    guid: ed94b30d7c1720040a2e6dca3ac5fc44
+    guid: 45c57996dab61ac48b4bec308ef64982
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Town.unity
+    guid: 533ac538364fc6d4eabd33b71c97d767
+  - enabled: 1
     path: Assets/Scenes/House1.unity
     guid: 0820c890d52f4f14794a66448acfdf66
+  - enabled: 1
+    path: Assets/Scenes/House2.unity
+    guid: 61237d25a4ad43a4db8ff71fc8cf9fbf
   - enabled: 1
     path: Assets/Scenes/Dungeon.unity
     guid: a50f578362b3fdb488219d8bf6cde968

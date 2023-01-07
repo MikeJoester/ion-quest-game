@@ -9,14 +9,6 @@ public class BossTransition : MonoBehaviour
     public GameObject bossInfo;
     public AudioSource audioSource;
     public AudioClip clip;
-    void Start() {
-        
-    }
-
-    // Update is called once per frame
-    void Update() {
-        
-    }
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Player") {
