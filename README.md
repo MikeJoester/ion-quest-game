@@ -13,3 +13,6 @@ A fun Top-down Pixel RPG game where you are transported to a strange land after 
 ![image](https://user-images.githubusercontent.com/74175443/231451846-a15ddd0e-0fbe-410e-bbb1-6733b9faf3fe.png)
 
 ![image](https://user-images.githubusercontent.com/74175443/231451928-02398967-7550-41d9-ade4-f1ae2b07671d.png)
+
+![image](https://user-images.githubusercontent.com/74175443/231452352-ad520559-f44a-4fe4-85a7-1a2408b5dcd3.png)
+
