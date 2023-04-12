@@ -1,9 +1,9 @@
 # ION-Quest
 
-##Summary:
+## Summary:
 A fun Top-down Pixel RPG game where you are transported to a strange land after a shipwreck. You'll have to explore the land to find your way home.
 
-##Gameplay Images:
+## Gameplay Images:
 ![image](https://user-images.githubusercontent.com/74175443/231450856-3f0f2ea8-a638-4674-b686-4b7258e5b34f.png)
 
 ![image](https://user-images.githubusercontent.com/74175443/231450958-05d109dc-6b28-4d23-bd03-96f7f307a729.png)
